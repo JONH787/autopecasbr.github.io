@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoMERCADO br</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f0f0f0;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      margin-top: 20px;
+      border-radius: 6px;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: #003366;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .btn-orcamento {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .btn-orcamento:hover {
+      background: #128c4a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AutoMERCADO br</h1>
+  <nav>
+    <a href="#" data-target="compra">Compra</a>
+    <a href="#" data-target="venda">Venda</a>
+    <a href="#" data-target="pecas">Peças</a>
+    <a href="#" data-target="orcamento">Orçamento</a>
+  </nav>
+</header>
+
+<main>
+  <section id="compra" class="active">
+    <h2>Carros para Compra</h2>
+    <ul>
+      <li>Fiat Uno 2015 - R$ 22.000</li>
+      <li>Honda Civic 2018 - R$ 55.000</li>
+      <li>Volkswagen Gol 2016 - R$ 28.000</li>
+    </ul>
+  </section>
+
+  <section id="venda">
+    <h2>Venda seu Carro</h2>
+    <p>Entre em contato para anunciar seu veículo conosco.</p>
+  </section>
+
+  <section id="pecas">
+    <h2>Peças Automotivas</h2>
+    <ul>
+      <li>Filtro de óleo - R$ 80</li>
+      <li>Pastilha de freio - R$ 150</li>
+      <li>Bateria 60Ah - R$ 350</li>
+    </ul>
+  </section>
+
+  <section id="orcamento">
+    <h2>Solicitar Orçamento</h2>
+    <p>Clique no botão abaixo para falar direto conosco no WhatsApp:</p>
+    <a href="https://wa.me/5516993420611" target="_blank" class="btn-orcamento">Orçamento no WhatsApp</a>
+  </section>
+</main>
+
+<script>
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('main section');
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.getAttribute('data-target');
+
+      sections.forEach(sec => {
+        if(sec.id === target) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
